@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LangSpeak - Тереза Стефанюк</title>
+    <style>
+        :root {
+            --primary-blue: #4A90E2;
+            --dark-blue: #0A1931;
+            --bg-light: #F6FAFD;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(74, 144, 226, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: #EBF3FF;
+            color: var(--dark-blue);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .phone-container {
+            width: 100%;
+            max-width: 414px;
+            background: var(--white);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            box-shadow: 0 0 40px rgba(0,0,0,0.1);
+        }
+
+        /* Шапка */
+        header {
+            padding: 20px;
+            background: var(--white);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            font-weight: 800;
+            color: var(--dark-blue);
+            font-size: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-blue);
+            font-size: 13px;
+            font-weight: 500;
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+        nav a:hover { color: var(--primary-blue); opacity: 1; }
+
+        /* Головна */
+        .hero {
+            padding: 30px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 100%);
+        }
+
+        .hero-text { flex: 1; z-index: 2; }
+        .hero h1 { font-size: 28px; line-height: 1.1; margin-bottom: 15px; font-weight: 800; }
+        .hero p { font-size: 14px; color: #556; margin-bottom: 20px; }
+
+        .hero-illustration { width: 150px; height: auto; margin-left: -10px; }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white; border: none; padding: 14px 28px;
+            border-radius: 12px; font-weight: 700; cursor: pointer;
+            width: 100%; box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+
+        /* Картки */
+        .section-title { padding: 20px; font-size: 18px; font-weight: 700; }
+        
+        .selection-list { padding: 0 20px 20px; }
+
+        .item-card {
+            display: flex; align-items: center; background: white;
+            padding: 18px; border-radius: 20px; margin-bottom: 15px;
+            border: 1px solid #f0f0f0; cursor: pointer; transition: 0.3s;
+        }
+
+        .item-card:hover { border-color: var(--primary-blue); transform: translateX(5px); }
+
+        .icon-wrapper {
+            width: 48px; height: 48px; background: var(--primary-blue);
+            border-radius: 14px; display: flex; justify-content: center;
+            align-items: center; margin-right: 15px; color: white; font-size: 20px;
+        }
+
+        .item-info h4 { margin: 0; font-size: 15px; }
+        .item-info p { margin: 4px 0 0; font-size: 12px; color: #888; }
+
+        /* Спеціальна картка контактів */
+        .contact-box {
+            background: #f0f7ff; border: 2px solid var(--primary-blue);
+            padding: 25px; border-radius: 25px; text-align: center;
+            margin: 20px; animation: fadeIn 0.5s ease;
+        }
+
+        .contact-box h2 { margin-top: 0; color: var(--primary-blue); }
+
+        .hidden { display: none; }
+        .back-btn { padding: 15px 20px; color: var(--primary-blue); font-weight: 600; cursor: pointer; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .page { animation: fadeIn 0.4s ease; }
+    </style>
+</head>
+<body>
+
+<div class="phone-container">
+    <header>
+        <div class="header-top">
+            <div class="logo">LangSpeak</div>
+        </div>
+        <nav>
+            <a onclick="showPage('home')">Головна</a>
+            <a onclick="alert('Ми - найкраща школа іноземних мов!')">Про нас</a>
+            <a onclick="showPage('contacts')">Контакти</a>
+        </nav>
+    </header>
+
+    <div id="home" class="page">
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Твій шлях до вільної мови</h1>
+                <p>Персоналізовані курси від експертів.</p>
+                <button class="btn-primary" onclick="showPage('goal')">Почати навчання</button>
+            </div>
+            <img class="hero-illustration" src="https://cdni.iconscout.com/illustration/premium/thumb/online-language-learning-illustration-download-in-svg-png-gif-file-formats--foreign-education-lesson-pack-school-delivery-illustrations-4642708.png">
+        </div>
+        <h2 class="section-title">Чому ми?</h2>
+        <div class="selection-list">
+            <div class="item-card">
+                <div class="icon-wrapper">★</div>
+                <div class="item-info"><h4>Сучасні методики</h4><p>За стандартами CEFR 2024</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contacts" class="page hidden">
+        <div class="back-btn" onclick="showPage('home')">← Назад</div>
+        <div class="contact-box">
+            <div class="icon-wrapper" style="margin: 0 auto 15px; width: 70px; height: 70px; font-size: 30px;">👤</div>
+            <h2>Тереза Стефанюк</h2>
+            <p>Ваш персональний адміністратор</p>
+            <hr style="border: 0; border-top: 1px solid #d0e3f7; margin: 15px 0;">
+            <p style="font-weight: bold; font-size: 18px; color: var(--dark-blue);">+380 68 11 300</p>
+            <p style="font-size: 12px; color: #888;">Телефонуйте для консультації</p>
+        </div>
+    </div>
+
+    <div id="goal" class="page hidden">
+        <div class="back-btn" onclick="showPage('home')">← Назад</div>
+        <h2 class="section-title" style="text-align: center;">Яка ваша мета?</h2>
+        <div class="selection-list">
+            <div class="item-card" onclick="showPage('teacher')"><div class="icon-wrapper">🎯</div><div class="item-info"><h4>Підготовка до ЗНО</h4></div></div>
+            <div class="item-card" onclick="showPage('teacher')"><div class="icon-wrapper">💬</div><div class="item-info"><h4>Розмовна мова</h4></div></div>
+            <div class="item-card" onclick="showPage('teacher')"><div class="icon-wrapper">📜</div><div class="item-info"><h4>Мовний іспит</h4></div></div>
+        </div>
+    </div>
+
+    <div id="teacher" class="page hidden">
+        <div class="back-btn" onclick="showPage('goal')">← Назад</div>
+        <h2 class="section-title">Оберіть викладача</h2>
+        <div class="selection-list">
+            <div class="item-card" onclick="showPage('package')"><div class="icon-wrapper">👩‍🏫</div><div class="item-info"><h4>Олена Іванова</h4><p>8 років досвіду</p></div></div>
+            <div class="item-card" onclick="showPage('package')"><div class="icon-wrapper">👨‍🏫</div><div class="item-info"><h4>Петро Дмитренко</h4><p>Експерт зі ЗНО</p></div></div>
+        </div>
+    </div>
+
+    <div id="package" class="page hidden">
+        <div class="back-btn" onclick="showPage('teacher')">← Назад</div>
+        <h2 class="section-title">Оберіть пакет</h2>
+        <div class="selection-list">
+            <div class="item-card" onclick="showPage('final')"><div class="icon-wrapper">✓</div><div class="item-info"><h4>Стандарт</h4><p>8 занять на місяць</p></div></div>
+            <div class="item-card" onclick="showPage('final')" style="border: 2px solid var(--primary-blue);"><div class="icon-wrapper">💎</div><div class="item-info"><h4>Преміум</h4><p>12 занять + індивідуальний графік</p></div></div>
+        </div>
+    </div>
+
+    <div id="final" class="page hidden" style="text-align: center; padding: 60px 20px;">
+        <div class="icon-wrapper" style="margin: 0 auto 30px; width: 100px; height: 100px; font-size: 50px;">✓</div>
+        <h1>Дякуємо!</h1>
+        <p>Менеджер зателефонує вам найближчим часом.</p>
+        <button class="btn-primary" style="margin-top: 20px;" onclick="showPage('contacts')">Зв'язатися з адміністратором</button>
+    </div>
+</div>
+
+<script>
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.add('hidden'));
+        document.getElementById(pageId).classList.remove('hidden');
+        window.scrollTo(0,0);
+    }
+</script>
+
+</body>
+</html>
